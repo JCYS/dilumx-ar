@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#151717">
+  <title>DILUMX | Estudio de iluminación AR</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Web component oficial, versión fijada. Requiere conexión a Internet. -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.4.0/model-viewer.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./" aria-label="Dilumx inicio">DILUM<span>X</span><small>ILUMINACIÓN · DOMÓTICA</small></a><span class="edition">ESTUDIO AR / 01</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">COLECCIÓN / LÁMPARAS DE MESA</p><h1>La luz, en tu espacio.</h1><p>Explora cada diseño en 3D y descubre cómo se ve en tu propia casa.</p></section>
+    <div class="layout">
+      <section class="stage" aria-label="Visor tridimensional">
+        <div class="stage-top"><span class="tag"><span class="dot"></span> VISOR 3D</span><span id="stage-code">LM02 / GISELLE</span></div>
+        <!-- glTF usa metros: el modelo conserva el tamaño del catálogo en AR. -->
+        <model-viewer id="viewer" src="assets/models/giselle.glb" alt="Modelo 3D de la lámpara Giselle" poster="assets/images/giselle-preview.png" ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" camera-controls touch-action="pan-y" auto-rotate rotation-per-second="15deg" camera-orbit="25deg 77deg 105%" min-camera-orbit="auto 15deg 65%" max-camera-orbit="auto 105deg 180%" shadow-intensity="1.1" shadow-softness="0.8" exposure="1.1" environment-image="neutral" xr-environment>
+          <button class="ar-button" slot="ar-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z M4 7.5 12 12l8-4.5 M12 12v9"/></svg> Ver en mi espacio</button>
+          <div class="ar-prompt">Mueve el celular lentamente hacia una superficie plana.</div>
+          <div class="load-bar" slot="progress-bar"><div id="progress"></div></div>
+        </model-viewer>
+        <div class="stage-bottom"><span>Arrastra para girar · Pellizca para acercar</span><button id="rotate" class="plain" type="button" aria-pressed="true">Pausar giro</button></div>
+        <p id="status" class="status" role="status" aria-live="polite">Cargando visor 3D…</p>
+      </section>
+      <section class="details" aria-label="Detalles del producto">
+        <div class="detail-top"><p class="eyebrow">LÁMPARA DE MESA</p><span class="stock">STOCK LIMITADO*</span></div>
+        <h2 id="name">Giselle</h2><p id="model" class="model">MODELO LM02</p>
+        <p id="description">Pantalla negra de tela, borde dorado y una elegante base curva en aluminio.</p>
+        <div class="price"><span>PRECIO DE CATÁLOGO</span><strong id="price">S/ 109.00</strong></div>
+        <dl class="specs"><div><dt>Altura</dt><dd id="height">48 cm</dd></div><div><dt>Ancho</dt><dd>21 cm</dd></div><div><dt>Composición</dt><dd>Aluminio + tela</dd></div><div><dt>Rosca</dt><dd>E27</dd></div><div><dt>Cable</dt><dd>120 cm</dd></div></dl>
+        <a id="download" class="download" href="assets/models/giselle.glb" download>Descargar modelo GLB <span aria-hidden="true">↓</span></a>
+        <div class="note"><strong>Prueba en realidad aumentada</strong><p>En un celular compatible, toca «Ver en mi espacio», permite el acceso a la cámara y apunta a una mesa bien iluminada.</p></div>
+      </section>
+    </div>
+    <section class="collection"><div class="collection-heading"><h2>Elige tu lámpara</h2><span>02 DISEÑOS</span></div><div class="products" id="products" aria-label="Seleccionar lámpara"></div></section>
+    <footer>Prototipo DILUMX · Modelos aproximados a partir del catálogo. *Precio y stock referenciales, sin conexión a inventario.</footer>
+  </main>
+</body>
+</html>
